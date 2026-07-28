@@ -13,6 +13,8 @@ As illustrated in the lesson, if you have a complex distribution of data (e.g., 
 
 ### 2. The Two Spiral Classification Problem
 A classic, extreme example of traditional Machine Learning failing is the **Two Spiral Classification** problem.
+
+![Two Spiral Classification Problem](two_spirals.png)
 - Imagine two distinct datasets (Class A and Class B) arranged in the shape of two intertwined spirals.
 - A standard linear model is completely incapable of drawing a decision boundary that successfully follows the curves of the spirals.
 - Solving this requires a model capable of learning highly non-linear functions to correctly classify points belonging to Spiral A versus Spiral B.
