@@ -32,4 +32,4 @@ To understand how a network of these neurons makes complex decisions, consider t
 ### Visual Reference
 Below is the visual diagram illustrating the biological neuron concept and the hierarchical flow of information:
 
-![Biological Neuron Diagram](Biological_Neuron.png)
+![Biological Neuron Diagram](biological_neuron_diagram.png)
