@@ -1,7 +1,5 @@
 # How a Perceptron Learns: Introduction
 
-> **Module:** 02 — How Perceptrons Learn | **Topic:** 01 — Introduction  
-> This note covers how a Perceptron is set up as a **Supervised Learning** model, how it processes a forward pass, and how it decides its output through a numerical worked example.
 
 ---
 
