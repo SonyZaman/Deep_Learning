@@ -1,7 +1,3 @@
-# Introduction to Deep Learning
-
-This document serves as a comprehensive study note summarizing the fundamental concepts of Deep Learning (DL), specifically focusing on *why* Deep Learning is used and its *primary use cases*. It is designed for a quick recap before exams or interviews.
-
 ## Why Deep Learning?
 
 Deep Learning offers significant advantages over traditional Machine Learning approaches in several key areas:
