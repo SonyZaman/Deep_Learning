@@ -81,7 +81,7 @@ $$7 + 3(1.5) = 7 + 4.5 = 11.5 \ge 0 \implies \hat{y} = 1$$
 > **Key Insight:** The sign of $z$ tells us which "side" of the decision boundary a data point falls on. Positive → Class 1 (Pass), Negative → Class 0 (Fail).
 
 ---
-
+ 
 ## 4. What Happens When the Perceptron is Wrong?
 
 If the perceptron predicts $\hat{y} = 0$ but the true label is $y = 1$, it has made an error. It will then update its weights using the **Weight Updating Formula** (covered in detail in the next section):
