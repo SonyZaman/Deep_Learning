@@ -1,6 +1,4 @@
-# 🧠 Module 02 – Practice Questions & Answers
-
-This document contains a comprehensive set of practice questions and detailed answers covering the fundamentals of Perceptrons, how they learn, their geometry, implementation details, and limitations.
+#  Practice Questions & Answers
 
 ---
 
@@ -136,7 +134,7 @@ Imagine a 2D graph. A straight diagonal line cutting off the top right corner pe
 
 ---
 
-## 📝 Part 8: Mini Challenge (Very Easy)
+##  Part 8: Mini Challenge (Very Easy)
 
 **Q28. Given:**
 - $x_1 = 1,\ x_2 = 1$
