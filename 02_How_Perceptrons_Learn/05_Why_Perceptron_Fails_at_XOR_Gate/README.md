@@ -35,7 +35,6 @@ These points form a criss-cross (diagonal) pattern. **It is mathematically and g
 
 ## 3. Visual Intuition
 
-*Based on the course whiteboard illustrations:*
 
 ### Linearly Separable Example (AND Gate)
 You can draw a single diagonal red dashed line cutting across the graph to separate the points. 
