@@ -39,11 +39,13 @@ These points form a criss-cross (diagonal) pattern. **It is mathematically and g
 
 ### Linearly Separable Example (AND Gate)
 You can draw a single diagonal red dashed line cutting across the graph to separate the points. 
+
 ![Linearly Separable](linearly_separable.png)
 
 ### Not Linearly Separable Example (XOR Gate)
 The points of the same class are on opposite corners. Any single straight line you attempt to draw will always fail and accidentally mix the classes together. 
-![XOR Gate](xor_gate.png) 
+
+![XOR Gate](xor_gate.png)
 
 ---
 
