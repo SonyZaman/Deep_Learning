@@ -1,4 +1,4 @@
-# Module 03 — Practice Questions & Answers
+# Practice Questions & Answers
 
 ---
 
