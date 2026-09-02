@@ -53,17 +53,19 @@ $$ L(b) = \sum_{i=1}^{n} (y_i - 10x_i - b)^2 $$
 
 > If you drop a physical ball on the side of this U-shaped curve, it naturally rolls downhill to the bottom. Gradient Descent does the exact same thing mathematically.
 
-### The Update Rule (Walking Downhill)
+### The Intuition of Movement (Walking Downhill)
 
 To move our guess closer to the bottom, we look at the steepness (gradient) of the curve.
 - If the steepness is positive, we move left (negative direction).
 - If the steepness is negative, we move right (positive direction).
 
+![Gradient Descent Parabola](parabola_gradient.png)
+
 This logical deduction gives us our core update rule:
 
 $$ b_{new} = b_{old} - \eta \times \frac{dL}{db} $$
 
-*(Where $\eta$ is the Learning Rate or step size, and $\frac{dL}{db}$ is the steepness/slope of the curve).*
+*(Where **η** is the Learning Rate or step size, and **dL/db** is the steepness/slope of the curve).*
 
 ### Calculating the Derivative for $b$
 
