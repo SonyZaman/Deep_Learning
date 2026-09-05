@@ -27,14 +27,16 @@ For a **Perceptron** (a classifier that predicts discrete classes like +1 or -1)
 
 The perceptron takes in multiple input features (like Study Hours and Attendance), multiplies each by a weight, adds a bias, and passes the result through a **step function** to output a class label.
 
+![Perceptron Architecture](perceptron_architecture.png)
+
 Given two features $x_1$ and $x_2$, the perceptron computes:
 
 $$f(x_i) = w_1 x_{i1} + w_2 x_{i2} + b$$
 
-- If $f(x_i) > 0$ → predict **Class +1**
-- If $f(x_i) < 0$ → predict **Class -1**
+- If **f(xᵢ) > 0** → predict **Class +1**
+- If **f(xᵢ) < 0** → predict **Class -1**
 
-> The decision boundary is the line where $f(x_i) = 0$. Points on one side get classified as +1, and points on the other side get classified as -1.
+> The decision boundary is the line where **f(xᵢ) = 0**. Points on one side get classified as +1, and points on the other side get classified as -1.
 
 ---
 
@@ -52,6 +54,8 @@ Consider a dataset where we want to classify students as **Pass (+1)** or **Fail
 
 Our goal is to find the weights $w_1$, $w_2$ and bias $b$ such that the perceptron correctly classifies all students.
 
+![Decision Boundary](decision_boundary_classes.png)
+
 ---
 
 ## 5. The Perceptron Loss Function — Hinge-like Loss
@@ -62,12 +66,12 @@ $$L = \frac{1}{n} \sum_{i=1}^{n} \max(0, \; -y_i \cdot f(x_i))$$
 
 Let's break this down piece by piece:
 
-### 5.1. What does $y_i \cdot f(x_i)$ mean?
+### 5.1. What does yᵢ · f(xᵢ) mean?
 
-This is the product of the **true label** ($y_i$) and the **perceptron's raw output** ($f(x_i)$). It tells us whether the prediction is correct or not:
+This is the product of the **true label** (yᵢ) and the **perceptron's raw output** (f(xᵢ)). It tells us whether the prediction is correct or not:
 
-- **Correct prediction:** $y_i$ and $f(x_i)$ have the **same sign** → their product is **positive** → $y_i \cdot f(x_i) > 0$
-- **Wrong prediction:** $y_i$ and $f(x_i)$ have **opposite signs** → their product is **negative** → $y_i \cdot f(x_i) < 0$
+- **Correct prediction:** yᵢ and f(xᵢ) have the **same sign** → their product is **positive** → yᵢ · f(xᵢ) > 0
+- **Wrong prediction:** yᵢ and f(xᵢ) have **opposite signs** → their product is **negative** → yᵢ · f(xᵢ) < 0
 
 ### 5.2. What does $\max(0, -y_i \cdot f(x_i))$ do?
 
@@ -85,6 +89,8 @@ Let's see all four possible scenarios:
 | -1 | +1 | Positive | **Positive value** | Wrong — penalty added! |
 
 > **Key insight:** The loss is **zero** when the prediction is correct, and **greater than zero** when the prediction is wrong. So the total loss only accumulates from the misclassified points.
+
+![Hinge Loss](hinge_loss.png)
 
 ---
 
