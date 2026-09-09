@@ -12,14 +12,23 @@ At its core, an activation function is a mathematical equation attached to each 
 The primary reasons for using activation functions can be categorized into the following core areas:
 
 ### 1. To Help Make Decisions
+
+![Decision Making with Step Function](images/decision_making.jpg)
+
 - **The Problem:** Without an activation function, the output of a neuron is just a continuous numerical value that can range from negative infinity to positive infinity (e.g., $z = w_1x_1 + w_2x_2 + b$).
 - **The Solution:** An activation function transforms this raw output into a specific, bounded range (such as `0 to 1` or `-1 to 1`) to help the network make a definitive decision. For example, a step function can output `1` if the value is $\geq 0$ and `0` if it's $< 0$, acting as a clear decision boundary for classification tasks.
 
 ### 2. To Add Non-Linearity
+
+![Non-Linear Decision Boundary](images/non_linearity.jpg)
+
 - **The Problem:** A neural network without activation functions acts exactly like a simple linear regression model, no matter how many layers you stack. It would only be capable of drawing straight lines and solving linearly separable problems.
 - **The Solution:** Activation functions introduce **non-linear properties** into the network. This is crucial because real-world data is highly complex and non-linear. Non-linearity allows the neural network to learn intricate patterns, create curved decision boundaries, and solve complex tasks like image recognition or language translation.
 
 ### 3. To Enable Optimization (Must be Differentiable)
+
+![Differentiable Sigmoid Function](images/differentiable.jpg)
+
 - **The Problem:** Neural networks "learn" by continuously adjusting their weights and biases ($w_0, w_1, w_2, \dots$). This optimization is typically done using algorithms like **Gradient Descent**.
 - **The Solution:** To figure out *how* to update the weights to reduce the error, Gradient Descent needs to calculate the **derivative (gradient)** of the loss with respect to the weights. 
   - If an activation function is **not differentiable** (like a basic step function where the derivative is mostly zero), the gradients cannot be calculated, and the network stops learning.
