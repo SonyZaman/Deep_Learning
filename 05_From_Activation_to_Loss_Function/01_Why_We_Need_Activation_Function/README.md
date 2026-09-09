@@ -3,7 +3,9 @@
 This document provides a concise study guide outlining the core concepts of activation functions in Neural Networks and why they are absolutely essential for deep learning models.
 
 ## What is an Activation Function?
-At its core, an activation function is a mathematical equation attached to each neuron in a neural network. It takes the weighted sum of inputs (plus a bias) and determines whether the neuron should be "activated" or not, effectively transforming the raw linear sum into a meaningful output.
+Activation functions help to determine the output of a neural network. These types of functions are attached to each neuron in the network, and determine whether it should be activated or not, based on whether each neuron’s input is relevant for the model’s prediction.
+
+> **Note:** Activation functions also help to normalize the output of each neuron to a range between 1 and 0 or between -1 and 1.
 
 ---
 
