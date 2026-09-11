@@ -16,6 +16,8 @@ When plotted, the line $w_1 x_1 + w_2 x_2 + b = 0$ is always a **straight line**
 
 > **Key Constraint:** One neuron = one straight line. A single-layer network can only ever draw ONE straight line as its boundary, no matter how long you train it.
 
+![Single Perceptron Architecture](images/single_perceptron.png)
+
 ---
 
 ## 2. The XOR Problem: Proof That One Line Is Not Enough
