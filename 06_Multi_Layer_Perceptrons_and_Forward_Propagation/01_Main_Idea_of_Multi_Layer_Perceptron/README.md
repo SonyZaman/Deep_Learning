@@ -1,0 +1,117 @@
+# Main Idea of Multi-Layer Perceptron (MLP)
+
+This document explains why a single-layer perceptron fails on certain problems like XOR, and how a **Multi-Layer Perceptron (MLP)** solves them by stacking multiple layers of neurons.
+
+---
+
+## 1. Quick Recap: What is a Single-Layer Perceptron?
+
+A **Single-Layer Perceptron** is the simplest form of a neural network. It takes multiple inputs, multiplies each by a weight, sums them up, and passes the result through an activation function (like Sigmoid) to produce a single output.
+
+The computation is:
+
+$$
+z = w_1 x_1 + w_2 x_2 + \ldots + w_n x_n + b
+$$
+
+$$
+\hat{y} = \sigma(z)
+$$
+
+A single perceptron learns by drawing **one straight line** (or hyperplane in higher dimensions) to separate two classes. This is called a **linear decision boundary**.
+
+---
+
+## 2. The XOR Problem: Why a Single Layer Fails
+
+The **XOR (Exclusive OR)** gate is a classic problem that exposed the fundamental limitation of single-layer perceptrons.
+
+### XOR Truth Table
+
+![XOR Truth Table](images/xor_truth_table.png)
+
+The rules are simple:
+- Output is **1** when the inputs are **different**
+- Output is **0** when the inputs are the **same**
+
+### Why is XOR a Problem?
+
+Let's plot the four XOR data points on a 2D graph:
+
+![XOR Not Separable](images/xor_not_separable.png)
+
+As you can see, the **red X points (output = 1)** and **green O points (output = 0)** are arranged in a diagonal pattern. **No single straight line can separate them.**
+
+> **This is the core limitation of a single-layer perceptron: it can only create LINEAR decision boundaries.** XOR is not linearly separable, so a single perceptron will always fail on it.
+
+---
+
+## 3. The Solution: Multi-Layer Perceptron (MLP)
+
+The idea is beautifully simple: **add more layers!**
+
+Instead of one layer trying to draw one line, we give the network a **hidden layer** that transforms the input space into a new representation where the problem *becomes* linearly separable.
+
+### How MLP Solves XOR Step by Step
+
+![MLP Solves XOR](images/mlp_solves_xor.png)
+
+| Step | What Happens |
+|---|---|
+| **Step 1** | A single line tries (and fails) to separate the XOR points |
+| **Step 2** | The hidden layer creates **two** decision boundaries, carving out a region |
+| **Step 3** | The combination of two lines perfectly isolates the two classes |
+
+> **Key Insight:** The hidden layer neurons each learn a simple linear boundary. The **output layer** then *combines* the outputs of the hidden neurons to learn a non-linear boundary overall.
+
+---
+
+## 4. MLP Architecture
+
+![MLP Architecture](images/mlp_architecture.png)
+
+An MLP has three types of layers:
+
+- **Input Layer:** Receives the raw input features ($x_1, x_2, \ldots, x_n$). No computation happens here.
+- **Hidden Layer(s):** The core of the network. Each neuron applies a weighted sum and an **activation function**. This is where non-linearity is introduced. There can be one or many hidden layers.
+- **Output Layer:** Produces the final prediction $\hat{y}$ (a single value for regression/binary classification, or multiple values for multi-class classification).
+
+---
+
+## 5. Single Layer vs. Multi-Layer: A Side-by-Side Comparison
+
+![Single vs MLP](images/single_vs_mlp.png)
+
+| Feature | Single-Layer Perceptron | Multi-Layer Perceptron (MLP) |
+|---|---|---|
+| **Layers** | Input + Output only | Input + Hidden(s) + Output |
+| **Decision Boundary** | Linear (straight line) | Non-linear (curves, complex shapes) |
+| **Can solve XOR?** | No | Yes |
+| **Can learn complex patterns?** | No | Yes |
+| **Key Requirement** | — | Non-linear activation function in hidden layers |
+
+---
+
+## 6. Why Does Adding Layers Work?
+
+Adding layers stacked with **non-linear activation functions** (like ReLU or Sigmoid) gives the network the power to learn **any function**, no matter how complex. Each layer builds a more abstract representation of the data:
+
+- **Layer 1** might detect simple edges or features
+- **Layer 2** might combine those into shapes or patterns
+- **Layer 3** might recognize high-level concepts
+
+> **Universal Approximation Theorem:** An MLP with even a single hidden layer (and enough neurons) can approximate *any* continuous mathematical function to arbitrary precision. This is the theoretical foundation of why deep learning is so powerful!
+
+---
+
+## 7. Summary
+
+| Concept | Key Point |
+|---|---|
+| **XOR Problem** | Cannot be solved by a single-layer perceptron because it is not linearly separable |
+| **Why single layer fails** | It can only draw one straight decision boundary |
+| **How MLP solves it** | Hidden layers transform the input space; multiple boundaries combine to create non-linear separation |
+| **The secret ingredient** | Non-linear activation functions in hidden layers |
+| **MLP Structure** | Input Layer → Hidden Layer(s) → Output Layer |
+
+> **Takeaway:** The XOR problem was historically significant — it proved that single-layer perceptrons were fundamentally limited, and directly motivated the invention of multi-layer networks and the backpropagation algorithm that trains them.
