@@ -48,9 +48,50 @@ As you can see, the **red X points (output = 1)** and **green O points (output =
 
 ## 3. The Solution: Multi-Layer Perceptron (MLP)
 
-The idea is beautifully simple: **add more layers!**
+The idea is beautifully simple: **connect multiple perceptrons together!**
 
 Instead of one layer trying to draw one line, we give the network a **hidden layer** that transforms the input space into a new representation where the problem *becomes* linearly separable.
+
+### From One Perceptron to an MLP
+
+A multi-layer perceptron is built progressively:
+
+1. **One perceptron:** Each input is multiplied by a weight, combined with a bias, and passed through an activation function to produce one output.
+2. **One layer of perceptrons:** Several perceptrons receive the same input features. Each one learns its own weights, bias, and decision boundary, so the layer produces several outputs.
+3. **Connected layers:** The outputs of the first layer become the inputs to the next layer. Connecting another group of perceptrons allows the network to combine the features discovered earlier.
+4. **Output perceptron:** The final layer combines the last hidden-layer outputs and produces the prediction.
+
+In a fully connected MLP, every neuron in one layer is connected to every neuron in the next layer. The connection has a weight, and every neuron has its own bias. The network does not simply repeat the same perceptron: each neuron learns different parameters and therefore learns a different feature or boundary.
+
+![From a Single Perceptron to Connected MLP Layers](images/mlp_architecture.png)
+
+For an input vector $\mathbf{x} = [x_1, x_2, x_3]$, a hidden layer with four neurons computes four different results:
+
+$$
+\mathbf{z}^{(1)} = W^{(1)}\mathbf{x} + \mathbf{b}^{(1)}
+$$
+
+The activation function is applied element by element:
+
+$$
+\mathbf{a}^{(1)} = f(\mathbf{z}^{(1)})
+$$
+
+The next layer uses those four outputs as its inputs. For example, a second hidden layer with three neurons computes:
+
+$$
+\mathbf{z}^{(2)} = W^{(2)}\mathbf{a}^{(1)} + \mathbf{b}^{(2)},
+\qquad
+\mathbf{a}^{(2)} = f(\mathbf{z}^{(2)})
+$$
+
+Finally, the output layer combines the second hidden layer:
+
+$$
+\hat{y} = g\left(W^{(3)}\mathbf{a}^{(2)} + \mathbf{b}^{(3)}\right)
+$$
+
+Here, each superscript identifies a layer, $W$ contains the connection weights, $b$ contains the biases, and $f$ and $g$ are activation functions. This sequence of calculations is called **forward propagation**.
 
 ### How MLP Solves XOR Step by Step
 
@@ -68,13 +109,13 @@ Instead of one layer trying to draw one line, we give the network a **hidden lay
 
 ## 4. MLP Architecture
 
-![MLP Architecture](images/mlp_architecture.png)
-
 An MLP has three types of layers:
 
 - **Input Layer:** Receives the raw input features ($x_1, x_2, \ldots, x_n$). No computation happens here.
 - **Hidden Layer(s):** The core of the network. Each neuron applies a weighted sum and an **activation function**. This is where non-linearity is introduced. There can be one or many hidden layers.
 - **Output Layer:** Produces the final prediction $\hat{y}$ (a single value for regression/binary classification, or multiple values for multi-class classification).
+
+The arrows in the architecture diagram represent learned connections, not just data flow. During training, backpropagation adjusts these weights and biases so that the complete sequence of layers produces better predictions.
 
 ---
 
@@ -94,11 +135,11 @@ An MLP has three types of layers:
 
 ## 6. Why Does Adding Layers Work?
 
-Adding layers stacked with **non-linear activation functions** (like ReLU or Sigmoid) gives the network the power to learn **any function**, no matter how complex. Each layer builds a more abstract representation of the data:
+Adding layers stacked with **non-linear activation functions** (like ReLU or Sigmoid) gives the network the power to learn much more complex functions. Each layer builds a more useful representation of the data:
 
-- **Layer 1** might detect simple edges or features
-- **Layer 2** might combine those into shapes or patterns
-- **Layer 3** might recognize high-level concepts
+- **First hidden layer:** learns simple features or boundaries from the raw inputs.
+- **Later hidden layers:** combine earlier features into shapes, patterns, or more abstract representations.
+- **Output layer:** combines the final representation to make the prediction.
 
 > **Universal Approximation Theorem:** An MLP with even a single hidden layer (and enough neurons) can approximate *any* continuous mathematical function to arbitrary precision. This is the theoretical foundation of why deep learning is so powerful!
 
